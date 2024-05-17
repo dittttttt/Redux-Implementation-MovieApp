@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function Footer() {
   const [input, setInput] = useState({
@@ -16,10 +17,22 @@ export default function Footer() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!input.name.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
+    if (!input.email.trim()) {
+      toast.error("Please enter your email");
+      return;
+    }
+    if (!input.message.trim()) {
+      toast.error("Please enter your message");
+      return;
+    }
     console.log("Submitting form with input:", input); // Debugging
     if (input.name && input.email && input.message) {
       try {
-        const res = await fetch("/api/contact.js", {
+        const res = await fetch("/src/api/contact.js", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(input),
@@ -57,6 +70,7 @@ export default function Footer() {
           <a
             href="https://wa.me/6289616857439?text=Saya%20tertarik%20dengan%20project%20Anda"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <img
               src="/assets/whatsapp.png"
@@ -64,24 +78,40 @@ export default function Footer() {
               alt="WhatsApp"
             />
           </a>
-          <a href="https://www.instagram.com/adityahp._" target="_blank">
+          <a
+            href="https://www.instagram.com/adityahp._"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               src="/assets/social.png"
               className="w-[30px]"
               alt="Instagram"
             />
           </a>
-          <a href="https://t.me/addddttttt" target="_blank">
+          <a
+            href="https://t.me/addddttttt"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               src="/assets/telegram.png"
               className="w-[30px]"
               alt="Telegram"
             />
           </a>
-          <a href="https://github.com/dittttttt" target="_blank">
+          <a
+            href="https://github.com/dittttttt"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src="/assets/github.png" className="w-[30px]" alt="GitHub" />
           </a>
-          <a href="mailto:adityahputra2153@gmail.com">
+          <a
+            href="mailto:adityahputra2153@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src="/assets/gmail.png" className="w-[30px]" alt="Email" />
           </a>
         </div>
