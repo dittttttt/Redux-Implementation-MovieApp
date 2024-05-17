@@ -19,7 +19,7 @@ export default function Footer() {
     console.log("Submitting form with input:", input); // Debugging
     if (input.name && input.email && input.message) {
       try {
-        const res = await fetch("/public/api/contact.js", {
+        const res = await fetch("/api/contact.js", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(input),
@@ -59,38 +59,30 @@ export default function Footer() {
             target="_blank"
           >
             <img
-              src="/public/assets/whatsapp.png"
+              src="/assets/whatsapp.png"
               className="w-[30px]"
               alt="WhatsApp"
             />
           </a>
           <a href="https://www.instagram.com/adityahp._" target="_blank">
             <img
-              src="/public/assets/social.png"
+              src="/assets/social.png"
               className="w-[30px]"
               alt="Instagram"
             />
           </a>
           <a href="https://t.me/addddttttt" target="_blank">
             <img
-              src="/public/assets/telegram.png"
+              src="/assets/telegram.png"
               className="w-[30px]"
               alt="Telegram"
             />
           </a>
           <a href="https://github.com/dittttttt" target="_blank">
-            <img
-              src="/public/assets/github.png"
-              className="w-[30px]"
-              alt="GitHub"
-            />
+            <img src="/assets/github.png" className="w-[30px]" alt="GitHub" />
           </a>
           <a href="mailto:adityahputra2153@gmail.com">
-            <img
-              src="/public/assets/gmail.png"
-              className="w-[30px]"
-              alt="Email"
-            />
+            <img src="/assets/gmail.png" className="w-[30px]" alt="Email" />
           </a>
         </div>
       </div>
