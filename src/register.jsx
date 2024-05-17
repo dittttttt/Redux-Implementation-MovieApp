@@ -84,7 +84,7 @@ function Register() {
     <div className="text-white flex justify-center items-center h-screen ">
       <div className="flex p-2">
         <div className="flex-1 bg-blue-900 bg-[url('src/assets/bglogin.svg')] text-white flex flex-col rounded-l-xl justify-center items-center w-1/2 p-6">
-          <img src="/public/assets/assetregist.svg" className="w-[250px] mb-5" />
+          <img src="/assets/assetregist.svg" className="w-[250px] mb-5" />
           <div className="text-center">
             <h1 className="text-2xl mb-2">Nice to see you today</h1>
             <h2 className="text-4xl mb-4">
@@ -173,12 +173,9 @@ function Register() {
                         style={{ borderLeft: "none" }}
                       >
                         {showPassword ? (
-                          <img
-                            src="/public/assets/view.png"
-                            className="w-4 py-2"
-                          />
+                          <img src="/assets/view.png" className="w-4 py-2" />
                         ) : (
-                          <img src="/public/assets/eye.png" className="w-4 py-2" />
+                          <img src="/assets/eye.png" className="w-4 py-2" />
                         )}
                       </button>
                     </div>

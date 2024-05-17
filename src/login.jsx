@@ -69,7 +69,7 @@ export default function login() {
     <div className="text-white flex justify-center items-center h-screen">
       <div className="flex">
         <div className="flex-1 bg-blue-900   bg-[url('src/assets/bglogin.svg')] text-white flex flex-col rounded-l-xl justify-center items-center w-1/2 p-6">
-          <img src="/public/assets/assetlogin.svg" className="w-[250px] mb-5" />
+          <img src="/assets/assetlogin.svg" className="w-[250px] mb-5" />
           <div className="text-center">
             <h1 className="text-2xl mb-2">Nice to see you again</h1>
             <h2 className="text-4xl mb-4">WELCOME BACK</h2>
@@ -162,12 +162,12 @@ export default function login() {
                         >
                           {showPassword ? (
                             <img
-                              src="/public/assets/view.png"
+                              src="/assets/view.png"
                               className="w-4 py-2"
                             />
                           ) : (
                             <img
-                              src="/public/assets/eye.png"
+                              src="/assets/eye.png"
                               className="w-4 py-2"
                             />
                           )}
