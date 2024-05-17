@@ -54,11 +54,40 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex mt-5 gap-2">
-          <img src="src/assets/whatsapp.png" className="w-[30px]" />
-          <img src="src/assets/social.png" className="w-[30px]" />
-          <img src="src/assets/telegram.png" className="w-[30px]" />
-          <img src="src/assets/github.png" className="w-[30px]" />
-          <img src="src/assets/gmail.png" className="w-[30px]" />
+          <a
+            href="https://wa.me/6289616857439?text=Saya%20tertarik%20dengan%20project%20Anda"
+            target="_blank"
+          >
+            <img
+              src="src/assets/whatsapp.png"
+              className="w-[30px]"
+              alt="WhatsApp"
+            />
+          </a>
+          <a href="https://www.instagram.com/adityahp._" target="_blank">
+            <img
+              src="src/assets/social.png"
+              className="w-[30px]"
+              alt="Instagram"
+            />
+          </a>
+          <a href="https://t.me/addddttttt" target="_blank">
+            <img
+              src="src/assets/telegram.png"
+              className="w-[30px]"
+              alt="Telegram"
+            />
+          </a>
+          <a href="https://github.com/dittttttt" target="_blank">
+            <img
+              src="src/assets/github.png"
+              className="w-[30px]"
+              alt="GitHub"
+            />
+          </a>
+          <a href="mailto:adityahputra2153@gmail.com">
+            <img src="src/assets/gmail.png" className="w-[30px]" alt="Email" />
+          </a>
         </div>
       </div>
       <div className="w-1/3 mx-4 flex justify-center ">
@@ -119,7 +148,13 @@ export default function Footer() {
               >
                 Send Message
               </button>
-              <a>Cancel</a>
+              <a
+                onClick={(e) => {
+                  setInput({ name: "", email: "", message: "" });
+                }}
+              >
+                <button>Cancel</button>
+              </a>
             </div>
           </form>
         </div>
