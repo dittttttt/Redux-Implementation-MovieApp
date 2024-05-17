@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTopMovie } from "../redux/actions/movieAction";
 import { setMovieId } from "../redux/reducers/movieReducers";
 import BackToTopButton from "../component/backtotop";
+import Footer from "../component/footer";
 
 //Initial API KEY
 const API_KEY = "77b3a402465e7a82a0baf4ac6fbae43d";
@@ -333,6 +334,7 @@ export default function MovieApp() {
         </section>
       )}
       <BackToTopButton />
+      <Footer />
     </div>
   );
 }
