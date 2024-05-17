@@ -83,7 +83,7 @@ function Register() {
   return (
     <div className="text-white flex justify-center items-center h-screen ">
       <div className="flex p-2">
-        <div className="flex-1 bg-blue-900 bg-[url('src/assets/bglogin.svg')] text-white flex flex-col rounded-l-xl justify-center items-center w-1/2 p-6">
+        <div className="flex-1 bg-blue-900 bg-[url('/assets/bglogin.svg')] text-white flex flex-col rounded-l-xl justify-center items-center w-1/2 p-6">
           <img src="/assets/assetregist.svg" className="w-[250px] mb-5" />
           <div className="text-center">
             <h1 className="text-2xl mb-2">Nice to see you today</h1>
