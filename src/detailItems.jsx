@@ -171,7 +171,7 @@ export default function MovieApp() {
                 />
               ) : (
                 <img
-                  src="/src/assets/user.png"
+                  src="/public/assets/user.png"
                   alt="User Picture"
                   className="w-10 h-10 rounded-full"
                 />
