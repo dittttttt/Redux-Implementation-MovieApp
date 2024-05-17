@@ -313,7 +313,7 @@ export default function MovieApp() {
           </div>
         </section>
       )}
-      {/* Top Rated Movies */}
+      {/* Similar Movies */}
       <div className="flex justify-center mt-4">
         <div className="py-4">
           <div className=" text-center py-">
