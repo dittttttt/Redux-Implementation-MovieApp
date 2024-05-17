@@ -6,6 +6,7 @@ const initialState = {
   upComing: [],
   nowPlaying: [],
   recomend: [],
+  similar: [],
   searchResult: [],
   movieId: null,
   movieDetail: null,
@@ -17,23 +18,23 @@ const movieSlicer = createSlice({
   initialState,
   reducers: {
     setPopularMovies: (state, action) => {
-      console.log("state Popular ", state);
-      console.log("action Popular ", action.payload);
+      // console.log("state Popular ", state);
+      // console.log("action Popular ", action.payload);
       state.popular = action.payload;
     },
     setTopRatedMovies: (state, action) => {
-      console.log("state Top Rated ", state);
-      console.log("action Top Rated ", action.payload);
+      // console.log("state Top Rated ", state);
+      // console.log("action Top Rated ", action.payload);
       state.topRated = action.payload;
     },
     setUpComingMovies: (state, action) => {
-      console.log("state Up Coming ", state);
-      console.log("action Up Coming ", action.payload);
+      // console.log("state Up Coming ", state);
+      // console.log("action Up Coming ", action.payload);
       state.upComing = action.payload;
     },
     setNowPlayingMovies: (state, action) => {
-      console.log("state Now Playing ", state);
-      console.log("action Now Playing", action.payload);
+      // console.log("state Now Playing ", state);
+      // console.log("action Now Playing", action.payload);
       state.nowPlaying = action.payload;
     },
     setMovieId: (state, action) => {
@@ -43,19 +44,23 @@ const movieSlicer = createSlice({
       state.movieDetail = action.payload;
     },
     setSearchQuery: (state, action) => {
-      console.log("action search query ", action);
+      // console.log("action search query ", action);
       state.searchQuery = action.payload;
     },
     setSearchResult: (state, action) => {
-      console.log("action search result ", action);
+      // console.log("action search result ", action);
       state.searchResult = action.payload;
     },
     setRecomendMovies: (state, action) => {
-      console.log("action Recomend result ", action);
+      // console.log("action Recomend result ", action);
       state.recomend = action.payload;
     },
+    setSimilarMovies: (state, action) => {
+      // console.log("action Recomend result ", action);
+      state.similar = action.payload;
+    },
     setToken: (state, action) => {
-      console.log("action Login Token ", action);
+      // console.log("action Login Token ", action);
       state.token = action.payload;
     },
   },
@@ -71,6 +76,7 @@ export const {
   setSearchQuery,
   setSearchResult,
   setRecomendMovies,
+  setSimilarMovies,
   setToken,
 } = movieSlicer.actions;
 

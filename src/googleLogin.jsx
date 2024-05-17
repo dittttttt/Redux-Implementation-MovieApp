@@ -3,6 +3,8 @@ import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin as Google } from "@react-oauth/google";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function GoogleLogin({ buttonText }) {
   const navigate = useNavigate();
@@ -49,7 +51,8 @@ function GoogleLogin({ buttonText }) {
       </button> */}
       <Google
         onSuccess={(credentialResponse) => {
-          console.log("Credential Response", credentialResponse);
+          toast.success("Login Successful");
+          // console.log("Credential Response", credentialResponse);
           localStorage.setItem("token", credentialResponse.credential);
           localStorage.setItem("login", "google component");
           navigate("/", {

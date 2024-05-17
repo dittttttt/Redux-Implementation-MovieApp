@@ -9,6 +9,7 @@ import { HiLogout, HiViewGrid, HiUserCircle } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { getUpComingMovie } from "../redux/actions/movieAction";
 import { setMovieId } from "../redux/reducers/movieReducers";
+import BackToTopButton from "../component/backtotop";
 
 //Initial API KEY
 const API_KEY = "77b3a402465e7a82a0baf4ac6fbae43d";
@@ -18,6 +19,7 @@ export default function MovieApp() {
   const [numOfItems, setNumOfItems] = useState(10);
   const [isNotFound, SetIsNotFound] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [logoutModal, setLogoutModal] = useState(false);
   const [user, setDataUser] = useState({});
   const dispatch = useDispatch();
 
@@ -26,7 +28,7 @@ export default function MovieApp() {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    console.log("localStorage ", localStorage.getItem("token"));
+    // console.log("localStorage ", localStorage.getItem("token"));
     if (localStorage.getItem("token") === null) {
       navigate("/");
     }
@@ -38,9 +40,9 @@ export default function MovieApp() {
       if (localStorage.getItem("login") === "google component") {
         const decoded = jwtDecode(localStorage.getItem("token"));
 
-        console.log("Data User : ", decoded);
+        // console.log("Data User : ", decoded);
         setDataUser(decoded);
-        console.log("User : ", user);
+        // console.log("User : ", user);
         if (decoded?.exp < new Date() / 1000) {
           alert("token expire");
         }
@@ -70,10 +72,10 @@ export default function MovieApp() {
             alert("token expire");
             return;
           }
-          console.log("first", resJson);
+          // console.log("first", resJson);
         } catch (error) {
           alert("token expire");
-          console.log("error ", error);
+          // console.log("error ", error);
         }
       }
     }
@@ -82,7 +84,7 @@ export default function MovieApp() {
 
   //Passing Data API {{ UP COMING }}
   const upComing = useSelector((state) => state?.movies?.upComing);
-  console.log("Up Coming ", upComing);
+  // console.log("Up Coming ", upComing);
   useEffect(() => {
     dispatch(getUpComingMovie());
     setIsLoading(false);
@@ -113,6 +115,50 @@ export default function MovieApp() {
 
   return (
     <div className="text-white">
+      {logoutModal && (
+        <div className="fixed  inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="flex flex-col justify-center items-center bg-gray-900 p-8 rounded-lg shadow-md border animate__animated animate__bounceInDown">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-12 h-12"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+              />
+            </svg>
+
+            <p className="text-xl text-yellow-600 px-8 py-2">
+              <strong>Upsss...</strong>
+            </p>
+            <p className=" px-8">Are you sure to leave this site?</p>
+            <div>
+              <button
+                onClick={() => setLogoutModal(false)}
+                className="bg-yellow-500 text-white px-4 py-2 rounded-md mt-12 hover:bg-yellow-600"
+              >
+                Close
+              </button>
+              <button
+                onClick={() => {
+                  setLogoutModal(false);
+                  localStorage.removeItem("token");
+                  navigate("/login");
+                  toast.success("Logout berhasil");
+                }}
+                className="bg-red-600 text-white px-4 py-2 rounded-md mt-12 hover:bg-red-700 ms-3"
+              >
+                Yes, I'm sure
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Navbar  */}
       <div className="flex justify-between items-center text-xl py-5 px-12 bg-gray-900 fixed top-0 left-0 w-full shadow-md z-10">
         <a href="/" className="text-3xl">
@@ -161,8 +207,7 @@ export default function MovieApp() {
               <Dropdown.Divider />
               <Dropdown.Item
                 onClick={() => {
-                  localStorage.removeItem("token");
-                  navigate("/login");
+                  setLogoutModal(true);
                 }}
                 icon={HiLogout}
               >
@@ -266,11 +311,17 @@ export default function MovieApp() {
                         }}
                         className="w-[250px] px-3"
                       >
-                        <img
-                          src={`https://image.tmdb.org/t/p/w200/${e?.poster_path}`}
-                          alt=""
-                          className="rounded-md w-full hover:scale-105"
-                        />
+                        {e?.poster_path ? (
+                          <img
+                            src={`https://image.tmdb.org/t/p/w200/${e?.poster_path}`}
+                            alt=""
+                            className="rounded-md w-full hover:scale-105"
+                          />
+                        ) : (
+                          <div className="bg-gray-300 rounded-md w-full h-[340px] flex justify-center items-center">
+                            <p className="text-gray-500">Image Not Available</p>
+                          </div>
+                        )}
                         <p className="mt-4">
                           <strong>{e?.title}</strong>
                         </p>
@@ -290,6 +341,7 @@ export default function MovieApp() {
           </div>
         </section>
       )}
+      <BackToTopButton />
     </div>
   );
 }
