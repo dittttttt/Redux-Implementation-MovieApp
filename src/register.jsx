@@ -155,7 +155,7 @@ function Register() {
                     <label>
                       <span>Password</span>
                     </label>
-                    <div className="flex">
+                    <div className="relative">
                       <input
                         type={showPassword ? "text" : "password"}
                         onChange={(e) =>
@@ -163,13 +163,13 @@ function Register() {
                         }
                         name="password"
                         placeholder="Password"
-                        className="py-[8px] px-5 w-full rounded-l-md text-black border border-gray-300 "
+                        className="py-2 w-full px-5 rounded-md text-black"
                         style={{ borderRight: "none" }}
                       />
                       <button
                         type="button"
                         onClick={handleTogglePassword}
-                        className="flex justify-end px-3 py-[5px] rounded-r-lg border bg-white text-white "
+                        className="flex absolute right-1 top-[2px] justify-end px-3 py-[3px] rounded-r-lg text-white "
                         style={{ borderLeft: "none" }}
                       >
                         {showPassword ? (

@@ -137,7 +137,7 @@ export default function login() {
                       <label>
                         <span>Password</span>
                       </label>
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between relative">
                         <input
                           type={showPassword ? "text" : "password"}
                           value={password}
@@ -147,7 +147,7 @@ export default function login() {
                           }}
                           name="password"
                           placeholder="Password"
-                          className={`py-[8px] px-5 w-full rounded-l-lg text-black border border-gray-300 ${
+                          className={`py-2 px-5 w-full rounded-md text-black border border-gray-300 ${
                             isPasswordEmpty && "border-2 border-red-500"
                           }`}
                           style={{ borderRight: "none" }}
@@ -155,7 +155,7 @@ export default function login() {
                         <button
                           type="button"
                           onClick={handleTogglePassword}
-                          className={`flex justify-end px-3 py-[5px] rounded-r-lg border bg-white text-white ${
+                          className={`flex absolute right-0 top-[2px] justify-end px-3 py-1 rounded-r-lg text-white ${
                             isPasswordEmpty && "border-2 border-red-500"
                           }`}
                           style={{ borderLeft: "none" }}
@@ -170,7 +170,7 @@ export default function login() {
                     </div>
                     <button
                       type="submit"
-                      className="p-2 my-3 border bg-blue-600 hover:bg-blue-700"
+                      className="p-2 my-3 border rounded-md bg-blue-600 hover:bg-blue-700"
                     >
                       Sign In
                     </button>
